@@ -1,0 +1,33 @@
+{
+  "name": "loggerfy",
+  "version": "1.0.1",
+  "description": "Loggerfy is a lightweight and customizable logging library designed to provide structured logs with rich metadata. It simplifies the process of logging errors, warnings, and information while ensuring consistency across your application.",
+  "keywords": [
+    "loggerfy",
+    "log",
+    "logging",
+    "logger",
+    "aws",
+    "gcp"
+  ],
+  "license": "MIT",
+  "author": "juanbautista0",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest test --no-cache --coverage --runInBand",
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.0",
+    "typescript": "^5.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juanbautista0/loggerfy.git"
+  }
+}
