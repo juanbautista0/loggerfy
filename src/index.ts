@@ -10,8 +10,8 @@ export type LoggerLevelType = (typeof LoggerLevel)[keyof typeof LoggerLevel];
 
 export interface LoggerfyRepository {
     save(log: LogEntry): Promise<void>
-    getById(logId: UUID): Promise<LogEntry>
-    getAll(criteria: Partial<LogEntry>): Promise<LogEntry>
+    getById?(logId: UUID): Promise<LogEntry>
+    getAll?(criteria: Partial<LogEntry>): Promise<LogEntry>
 }
 
 const NULL_UUID = "00000000-0000-0000-0000-000000000000";
