@@ -16,17 +16,17 @@ export interface LoggerfyRepository {
 
 const NULL_UUID = "00000000-0000-0000-0000-000000000000";
 
-interface LogEntry {
-    timestamp: string;
-    id: UUID;
-    code: string;
-    message: string;
-    detail: string;
-    payload: Record<string, any>;
-    level: LoggerLevelType;
-    severity: string;
-    service: string;
-    environment: string;
+export interface LogEntry {
+    timestamp?: string;
+    id?: UUID;
+    code?: string;
+    message?: string;
+    detail?: string;
+    payload?: Record<string, any>;
+    level?: LoggerLevelType;
+    severity?: string;
+    service?: string;
+    environment?: string;
 }
 
 class LoggerfyBase {
