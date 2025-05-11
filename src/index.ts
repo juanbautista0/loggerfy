@@ -65,6 +65,12 @@ class LoggerfyBase {
         return this;
     }
 
+    getLog(): string {
+        const log = JSON.stringify(logEntry)
+        this.reset();
+        return log
+    }
+
     write(customId?: UUID): void {
         if (!this.code || !this.message || !this.detail) {
             return;
