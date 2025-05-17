@@ -1,6 +1,6 @@
 {
   "name": "loggerfy",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Loggerfy is a lightweight and customizable logging library designed to provide structured logs with rich metadata. It simplifies the process of logging errors, warnings, and information while ensuring consistency across your application.",
   "keywords": [
     "loggerfy",
