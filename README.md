@@ -31,10 +31,10 @@ import { Loggerfy } from 'loggerfy';
 
 ```
 
+
 ### Usage Example:
 
 ```js
-
 const log = new Loggerfy();
 log.error()
   .setCode('AUTH_001')
@@ -44,6 +44,7 @@ log.error()
   .write();
 
 ```
+
 
 ### Sample Output:
 
@@ -62,7 +63,28 @@ log.error()
 }
 
 ```
+Optional if message must to be saved in a repository (example using memory):
 
+```js
+import { LoggerfyRepository } from 'loggerfy';
+
+let messages: LogEntry[] = []
+
+export class LoggerDynamoDBRepository implements LoggerfyRepository {
+  save(log: LogEntry): Promise<void> {
+    messages.push(log)
+  }
+
+  getById?(logId: UUID): Promise<LogEntry> {
+    throw new Error("Method not implemented.");
+  }
+
+  getAll?(criteria: Partial<LogEntry>): Promise<LogEntry> {
+    throw new Error("Method not implemented.");
+  }
+}
+
+```
 ### Log Levels
 Loggerfy supports multiple log levels:
 

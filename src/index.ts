@@ -8,14 +8,6 @@ export const LoggerLevel = {
 
 export type LoggerLevelType = (typeof LoggerLevel)[keyof typeof LoggerLevel];
 
-export interface LoggerfyRepository {
-    save(log: LogEntry): Promise<void>
-    getById?(logId: UUID): Promise<LogEntry>
-    getAll?(criteria: Partial<LogEntry>): Promise<LogEntry>
-}
-
-const NULL_UUID = "00000000-0000-0000-0000-000000000000";
-
 export interface LogEntry {
     timestamp?: string;
     id?: UUID;
@@ -28,6 +20,14 @@ export interface LogEntry {
     service?: string;
     environment?: string;
 }
+
+export interface LoggerfyRepository {
+    save(log: LogEntry): Promise<void>
+    getById?(logId: UUID): Promise<LogEntry>
+    getAll?(criteria: Partial<LogEntry>): Promise<LogEntry>
+}
+
+const NULL_UUID = "00000000-0000-0000-0000-000000000000";
 
 class LoggerfyBase {
     private id: UUID = NULL_UUID;
@@ -66,7 +66,23 @@ class LoggerfyBase {
     }
 
     getLog(): string {
+        this.id = randomUUID();
+
+        const logEntry: LogEntry = {
+            timestamp: new Date().toISOString(),
+            id: this.id,
+            code: this.code,
+            message: this.message,
+            detail: this.detail,
+            payload: this.metadata,
+            level: this.level,
+            severity: this.level,
+            service: this.service,
+            environment: this.environment
+        };
+
         const log = JSON.stringify(logEntry)
+
         this.reset();
         return log
     }
