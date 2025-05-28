@@ -34,8 +34,10 @@ import { Loggerfy } from 'loggerfy';
 
 ### Usage Example:
 
+#### Print log in console:
 ```js
 const log = new Loggerfy();
+
 log.error()
   .setCode('AUTH_001')
   .setDetail('Invalid credentials provided')
@@ -46,7 +48,7 @@ log.error()
 ```
 
 
-### Sample Output:
+#### Sample Output:
 
 ```json
 {
@@ -61,6 +63,18 @@ log.error()
    "service": "fleet-management",
    "environment": "production"
 }
+
+```
+#### Save log stringify in variable:
+```js
+const log = new Loggerfy();
+
+const logMessage: string = log.error()
+  .setCode('AUTH_001')
+  .setDetail('Invalid credentials provided')
+  .setMessage('User authentication failed')
+  .setMetadata({ userId: 123, ip: '192.168.1.10' })
+  .getLog();
 
 ```
 Optional if message must to be saved in a repository (example using memory):
