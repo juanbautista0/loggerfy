@@ -1,4 +1,5 @@
-import {Loggerfy, LoggerLevel} from '../src/index'
+import { Loggerfy, LoggerLevel, LogEntry } from '../src/index'
+
 describe('Logger', () => {
   let logger: ReturnType<Loggerfy['info']>;
   let consoleSpy: jest.SpyInstance;
@@ -26,7 +27,6 @@ describe('Logger', () => {
   });
 
   it('Debe generar un log válido cuando se llama a write', () => {
-
     process.env.NODE_ENV = 'test';
 
     logger
@@ -66,6 +66,18 @@ describe('Logger', () => {
     expect(logger).toHaveProperty('message', '');
     expect(logger).toHaveProperty('detail', '');
     expect(logger).toHaveProperty('metadata', {});
+  });
+
+  it('Debe retornar log en formato json', () => {
+    const log = logger
+      .setCode('RESET_TEST')
+      .setMessage('Mensaje de prueba')
+      .setDetail('Detalle de prueba')
+      .setMetadata({ data: 123 })
+      .getLog();
+
+    const logObject = JSON.parse(log) as LogEntry;
+    expect(logObject.code).toEqual('RESET_TEST');
   });
 });
 
