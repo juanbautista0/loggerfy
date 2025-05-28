@@ -1,6 +1,6 @@
 {
   "name": "loggerfy",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Loggerfy is a lightweight and customizable logging library designed to provide structured logs with rich metadata. It simplifies the process of logging errors, warnings, and information while ensuring consistency across your application.",
   "keywords": [
     "loggerfy",
@@ -20,11 +20,11 @@
     "build": "tsc"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.13.14",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.3.0",
-    "typescript": "^5.8.2"
+    "@types/jest": "29.5.14",
+    "@types/node": "22.13.14",
+    "jest": "29.7.0",
+    "ts-jest": "29.3.0",
+    "typescript": "5.8.2"
   },
   "repository": {
     "type": "git",
